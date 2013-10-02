@@ -1,0 +1,14 @@
+# apt-proxy-setup configuration file
+#
+# This file tells the apt-proxy-setup upstart job
+# to know what kind of probing to do:
+
+# Probe this URL
+PROBE_URL=http://guinness.es.suxx.pl/.apt-proxy.txt
+
+# Expect this answer
+# NOTE: ideally that should be a short amount of text/plain content.
+PROBE_ANSWER=yes
+
+# And set this URL as the apt proxy
+PROXY_URL=http://guinness.es.suxx.pl:3142
