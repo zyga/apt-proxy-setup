@@ -1,14 +1,27 @@
 # apt-proxy-setup configuration file
+# ----------------------------------
 #
-# This file tells the apt-proxy-setup upstart job
-# to know what kind of probing to do:
+# Copy this file to /etc/default/apt-proxy-setup
+# and adjust it to your liking.
+#
+# This file tells the apt-proxy-setup upstart
+# job to know what kind of probing to do
 
-# Probe this URL
-PROBE_URL=http://guinness.es.suxx.pl/.apt-proxy.txt
+# Probe URL
+# ^^^^^^^^^
+# apt-proxy-setup will probe this URL (GET it) whenever this machine connects
+# to a different network. The contents of that URL should be small, preferrably
+# just a single word.
+PROBE_URL=http://apt-proxy.local/.proxy.txt
 
-# Expect this answer
-# NOTE: ideally that should be a short amount of text/plain content.
+# Expected answer
+# ^^^^^^^^^^^^^^^ 
+# When the probed URL matches this value assume we're in a local network with
+# local apt proxy available.
 PROBE_ANSWER=yes
 
-# And set this URL as the apt proxy
-PROXY_URL=http://guinness.es.suxx.pl:3142
+# Proxy URL
+# ^^^^^^^^^
+# When the probed URL matches the expected answer above then set the following
+# apt proxy.
+PROXY_URL=http://proxy.local:3142
